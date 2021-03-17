@@ -1,0 +1,81 @@
+{
+  "name": "styled-fleet",
+  "version": "0.1.0",
+  "author": "daacdev",
+  "description": "building theming for styled components.",
+  "license": "MIT",
+  "module": "dist/styled-fleet.esm.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "keywords": [
+    "react",
+    "styled-components",
+    "theme",
+    "theming"
+  ],
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "size-limit": [
+    {
+      "path": "dist/styled-fleet.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/styled-fleet.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "peerDependencies": {
+    "react": ">=16",
+    "styled-components": ">=5"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.10.1",
+    "@types/lodash.kebabcase": "^4.1.6",
+    "@types/lodash.merge": "^4.6.6",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.2",
+    "@types/styled-components": "^5.1.7",
+    "husky": "^5.1.3",
+    "lodash.kebabcase": "^4.1.1",
+    "lodash.merge": "^4.6.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "size-limit": "^4.10.1",
+    "styled-components": "^5.2.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.2.3"
+  },
+  "babelMacros": {
+    "styledComponents": {
+      "pure": true,
+      "transpileTemplateLiterals": true
+    }
+  }
+}
