@@ -8,7 +8,7 @@ import atRules from './at-rules';
  */
 export const regex = {
   // Extract all css variables
-  extract_css_var: /var\((?<propertie>.*?),(?<value>.*?)\),/g,
+  extract_css_var: /var\((?<propertie>.*?),(?<value>.*?)\)/g,
   // Extract all css variables or functions with arguments in the css string
   extract_user_var_or_fn_args: new RegExp(
     `(\\$)(?<var>[\\w-]+)|@\\s*(?<fn>(?!\\b${atRules.join(
@@ -55,16 +55,18 @@ export const getProperties: ThemeProperties = (
 export const getFlatProperties: ThemeFlatProperties = properties => {
   // Function to flatten all the css properties defined in the theme
   const flattenProperties: ThemeFlatProperties = properties => `
-    ${Object.entries(properties).map(([, value]) => {
-      const childs = typeof value === 'object' && flattenProperties(value);
-      return childs || value;
-    })}
+    ${Object.entries(properties)
+      .map(([, value]) => {
+        const childs = typeof value === 'object' && flattenProperties(value);
+        return childs || value;
+      })
+      .join(';')}
   `;
 
   return (
     flattenProperties(properties)
       // This is necessary to match the regular expression
       .concat(',')
-      .replace(regex.extract_css_var, '$<propertie>: $<value>;')
+      .replace(regex.extract_css_var, '$<propertie>: $<value>')
   );
 };
