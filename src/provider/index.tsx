@@ -1,7 +1,10 @@
 import * as React from 'react';
-import { ThemeProvider as StyledThemeProvider, StyleSheetManager } from 'styled-components/macro';
+import {
+  ThemeProvider as StyledThemeProvider,
+  StyleSheetManager,
+} from 'styled-components/macro';
 
-import { Theme } from '../types';
+import { ThemeProviderProps } from '../types';
 import { ModeContext } from '../context';
 
 /**
@@ -11,16 +14,20 @@ import { ModeContext } from '../context';
  * @property defaultMode: optional prop to set a default theme mode
  * @returns {React.FC}
  */
-export const ThemeProvider: React.FC<{ theme: ReturnType<Theme>, defaultMode?: string }> = ({ children, theme, defaultMode }) => {
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({
+  children,
+  theme,
+  defaultMode,
+}): JSX.Element => {
   const { properties, plugin, GlobalStyle } = theme;
-  const [mode, setMode] = React.useState<string>(defaultMode || "");
+  const [mode, setMode] = React.useState<string>(defaultMode || '');
 
   return (
-    <StyledThemeProvider theme = { properties } >
-      <StyleSheetManager stylisPlugins = {[plugin]} >
-        <ModeContext.Provider value = {{ mode, setMode }} >
-          <GlobalStyle mode = { mode } />
-          { children }
+    <StyledThemeProvider theme={properties}>
+      <StyleSheetManager stylisPlugins={[plugin]}>
+        <ModeContext.Provider value={{ mode, setMode }}>
+          <GlobalStyle mode={mode} />
+          {children}
         </ModeContext.Provider>
       </StyleSheetManager>
     </StyledThemeProvider>

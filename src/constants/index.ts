@@ -1,4 +1,3 @@
-
 // Default prefix constant
 export const DEFAULT_PREFIX = 'theme';
 
@@ -9,5 +8,5 @@ export const STYLIS_CONTEXT = {
   NEWLINE: 0,
   PROPERTY: 1,
   SELECTOR_BLOCK: 2,
-  AT_RULE: 3
+  AT_RULE: 3,
 };

@@ -19,9 +19,7 @@ export const createTheme: Theme = (theme, ...functions) => {
 
   // Object with the modes defined in the theme
   const modesObject = Object.fromEntries(
-    Object.entries(modes).map(
-      ([key, value]) => [key, getProperties(value)]
-    )
+    Object.entries(modes).map(([key, value]) => [key, getProperties(value)])
   );
 
   return {
@@ -32,12 +30,12 @@ export const createTheme: Theme = (theme, ...functions) => {
     // Global Style Component
     GlobalStyle: createGlobalStyle<{ mode?: string }>`
       :root {
-        ${({ mode }) => !!mode
-          ? getFlatProperties(merge(properties, modesObject[mode]))
-          : getFlatProperties(properties)
+        ${({ mode }) =>
+          !!mode
+            ? getFlatProperties(merge(properties, modesObject[mode]))
+            : getFlatProperties(properties)}  
         }
-      }
       ${styles as {}}
-    `
+    `,
   };
 };

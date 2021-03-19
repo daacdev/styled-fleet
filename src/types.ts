@@ -3,38 +3,40 @@ import {
   DefaultTheme as StyledDefaultTheme,
   GlobalStyleComponent,
   CSSObject,
-  StylisPlugin
+  StylisPlugin,
 } from 'styled-components';
 
 export interface ThemeModes {
-  [key: string]: string | number | ThemeModes
+  [key: string]: string | number | ThemeModes;
 }
 
 export interface ThemeStyles {
   styles?: {
-    [key in IntrinsicElementsKeys]?: CSSObject
-  }
+    [key in IntrinsicElementsKeys]?: CSSObject;
+  };
 }
 
 export interface DefaultTheme extends StyledDefaultTheme, ThemeStyles {
-  prefix?: string,
-  modes?: ThemeModes,
+  prefix?: string;
+  modes?: ThemeModes;
 }
 
 export interface Theme {
-  (
-    theme: DefaultTheme,
-    ...functions: Function[]
-  ): {
-    properties: DefaultTheme,
-    plugin: StylisPlugin,
-    GlobalStyle: GlobalStyleComponent<{ mode?: string }, DefaultTheme>,
-  }
+  (theme: DefaultTheme, ...functions: Function[]): {
+    properties: DefaultTheme;
+    plugin: StylisPlugin;
+    GlobalStyle: GlobalStyleComponent<{ mode?: string }, DefaultTheme>;
+  };
+}
+
+export interface ThemeProviderProps {
+  theme: ReturnType<Theme>;
+  defaultMode?: string;
 }
 
 export interface ThemeModeContext {
-  mode: string,
-  setMode: (mode: string) => void
+  mode: string;
+  setMode: (mode: string) => void;
 }
 
 export interface ThemeProperties {
@@ -42,9 +44,9 @@ export interface ThemeProperties {
     theme: DefaultTheme | string | number,
     parentKey?: string,
     prefix?: string
-  ): DefaultTheme
+  ): DefaultTheme;
 }
 
 export interface ThemeFlatProperties {
-  (properties: DefaultTheme): string
+  (properties: DefaultTheme): string;
 }

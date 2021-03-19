@@ -11,7 +11,9 @@ export const regex = {
   extract_css_var: /var\((?<propertie>.*?),(?<value>.*?)\),/g,
   // Extract all css variables or functions with arguments in the css string
   extract_user_var_or_fn_args: new RegExp(
-    `(\\$)(?<var>[\\w-]+)|@\\s*(?<fn>(?!\\b${atRules.join("|")}\\b)[\\w\\s-]+)\\((?<args>.*?)\\)(?!.*?\\)[^{]*$)`,
+    `(\\$)(?<var>[\\w-]+)|@\\s*(?<fn>(?!\\b${atRules.join(
+      '|'
+    )}\\b)[\\w\\s-]+)\\((?<args>.*?)\\)(?!.*?\\)[^{]*$)`,
     'g'
   ),
 };
@@ -23,23 +25,25 @@ export const regex = {
  * @param prefix Prefix for the construction of the css variable, by default it is "theme", for example --theme-background
  * @returns Theme object with all css variables
  */
-export const getProperties: ThemeProperties = (theme, parentKey, prefix = DEFAULT_PREFIX) => {
+export const getProperties: ThemeProperties = (
+  theme,
+  parentKey,
+  prefix = DEFAULT_PREFIX
+) => {
   return Object.fromEntries(
-    Object.entries(theme).map(
-      ([key, value]) => {
-        // Css variable name
-        const cssVarName =
-          parentKey
-            ? parentKey.concat(`-${kebabcase(key)}`)
-            : `--${prefix}-${kebabcase(key)}`;
+    Object.entries(theme).map(([key, value]) => {
+      // Css variable name
+      const cssVarName = parentKey
+        ? parentKey.concat(`-${kebabcase(key)}`)
+        : `--${prefix}-${kebabcase(key)}`;
 
-        return [
-          key, typeof value === 'object'
-            ? getProperties(value, cssVarName, prefix)
-            : `var(${cssVarName}, ${value})`
-        ]
-      }
-    )
+      return [
+        key,
+        typeof value === 'object'
+          ? getProperties(value, cssVarName, prefix)
+          : `var(${cssVarName}, ${value})`,
+      ];
+    })
   );
 };
 
@@ -50,17 +54,17 @@ export const getProperties: ThemeProperties = (theme, parentKey, prefix = DEFAUL
  */
 export const getFlatProperties: ThemeFlatProperties = properties => {
   // Function to flatten all the css properties defined in the theme
-  const flattenProperties: ThemeFlatProperties = properties => `${
-    Object.entries(properties).map(
-      ([, value]) => {
-        const childs = typeof value === 'object' && flattenProperties(value);
-        return childs || value;
-      }
-    )
-  }`;
+  const flattenProperties: ThemeFlatProperties = properties => `
+    ${Object.entries(properties).map(([, value]) => {
+      const childs = typeof value === 'object' && flattenProperties(value);
+      return childs || value;
+    })}
+  `;
 
-  return flattenProperties(properties)
-    // This is necessary to match the regular expression
-    .concat(',')
-    .replace(regex.extract_css_var, '$<propertie>: $<value>;');
+  return (
+    flattenProperties(properties)
+      // This is necessary to match the regular expression
+      .concat(',')
+      .replace(regex.extract_css_var, '$<propertie>: $<value>;')
+  );
 };
