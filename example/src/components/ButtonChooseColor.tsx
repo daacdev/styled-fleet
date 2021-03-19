@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { Button } from './Button';
 
 export const ButtonChooseColor = styled(Button)<{ color: string }>`
-  padding: 1rem;
-  height: 32px;
-  width: 32px;
+  padding: $theme-space-2;
+  height: $theme-sizes-variant-0;
+  width: $theme-sizes-variant-0;
   background-color: ${({ color }) => color};
 `;
 

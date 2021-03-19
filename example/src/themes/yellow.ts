@@ -1,23 +1,9 @@
-import { black, white, restColors, colors } from './colors';
+import { DefaultTheme } from '../../../.';
+import { white, colors } from './colors';
+import { commonsTheme } from './commons';
 
-export default {
-  prefix: 'theme',
-  styles: {
-    body: {
-      backgroundColor: '$theme-background',
-      color: '$theme-text',
-      minWidth: '100%',
-      minHeight: '100vh',
-      margin: 0,
-      padding: 0,
-      transition: 'background-color .5s, color .5s'
-    }
-  },
-  colors: {
-    black: black,
-    white: white,
-    ...restColors
-  },
+export const yellowTheme: DefaultTheme = {
+  ...commonsTheme,
   modes: {
     light: {
       background: colors.yellow[6],

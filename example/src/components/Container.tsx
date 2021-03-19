@@ -5,9 +5,9 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  height: 100vh;
-  width: 100%;
+  gap: $theme-space-1;
+  width: $theme-sizes-full;
+  height: $theme-sizes-screen-height;
 `;
 
 Container.displayName = 'Container';

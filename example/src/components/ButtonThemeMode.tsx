@@ -8,13 +8,13 @@ import { SunIcon } from './SunIcon';
 
 const IconButton = styled(Button)`
   background-color: transparent;
-  border: 0;
+  border: $theme-borders-0;
   cursor: pointer;
-  padding: 0;
+  padding: $theme-space-0;
   color: $theme-color;
   align-items: center;
   display: flex;
-  gap: 10px;
+  gap: $theme-space-1;
   outline: none;
 `;
 

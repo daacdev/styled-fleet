@@ -1,6 +1,7 @@
 import kebabcase from 'lodash.kebabcase';
 import { ThemeProperties, ThemeFlatProperties } from '../types';
 import { DEFAULT_PREFIX } from '../constants';
+import atRules from './at-rules';
 
 /**
  * @description An object with regular expressions that allows to extract information from css
@@ -9,7 +10,10 @@ export const regex = {
   // Extract all css variables
   extract_css_var: /var\((?<propertie>.*?),(?<value>.*?)\),/g,
   // Extract all css variables or functions with arguments in the css string
-  extract_user_var_or_fn_args: /(\$)(?<var>[\w-]+)|@\s*(?<fn>[\w\s-]+)\((?<args>.*?)\)(?!\s*\)|\s*,.*\))/g,
+  extract_user_var_or_fn_args: new RegExp(
+    `(\\$)(?<var>[\\w-]+)|@\\s*(?<fn>(?!\\b${atRules.join("|")}\\b)[\\w\\s-]+)\\((?<args>.*?)\\)(?!.*?\\)[^{]*$)`,
+    'g'
+  ),
 };
 
 /**
