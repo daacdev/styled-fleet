@@ -17,9 +17,8 @@ import { ModeContext } from '../context';
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({
   children,
   theme,
-  defaultMode,
 }): JSX.Element => {
-  const { properties, plugin, GlobalStyle } = theme;
+  const { defaultMode, properties, plugin, GlobalStyle } = theme;
   const [mode, setMode] = React.useState<string>(defaultMode || '');
 
   return (

@@ -2,7 +2,6 @@ import { DefaultTheme } from '../../../.';
 import { black, white, restColors } from './colors';
 
 export const commonsTheme: DefaultTheme = {
-  prefix: 'theme',
   styles: {
     body: {
       backgroundColor: '$theme-background',

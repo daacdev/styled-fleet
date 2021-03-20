@@ -29,7 +29,7 @@ export const App = () => {
   );
 
   return (
-    <ThemeProvider theme = { themes[theme] } defaultMode = "light" >
+    <ThemeProvider theme = { themes[theme] } >
       <Container>
         <Frame>
           <h1> styled-fleet </h1>

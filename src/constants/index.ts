@@ -10,3 +10,6 @@ export const STYLIS_CONTEXT = {
   SELECTOR_BLOCK: 2,
   AT_RULE: 3,
 };
+
+// Key for localstorage theme mode
+export const THEME_MODE_STORAGE_KEY = 'theme-mode';

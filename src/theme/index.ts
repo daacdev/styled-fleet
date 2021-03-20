@@ -2,8 +2,17 @@ import merge from 'lodash.merge';
 import { createGlobalStyle } from 'styled-components/macro';
 
 import { Theme } from '../types';
-import { getProperties, getFlatProperties } from '../util';
+import {
+  getProperties,
+  getFlatProperties,
+  createThemeModeStorage,
+} from '../util';
+
 import { plugin } from '../stylis/plugin';
+import { THEME_MODE_STORAGE_KEY } from '../constants';
+
+// Object to manage local storage of theme mode
+const storage = createThemeModeStorage(THEME_MODE_STORAGE_KEY);
 
 /**
  * @description Function that creates a theme to be used by ThemeProvider.
@@ -12,10 +21,13 @@ import { plugin } from '../stylis/plugin';
  * @param functions Optional argument to define functions that can be used by components
  * @returns A theme object that is used by ThemeProvider
  */
-export const createTheme: Theme = (theme, ...functions) => {
-  const { prefix, modes = {}, styles = {}, ...restTheme } = theme;
+export const createTheme: Theme = (theme, options) => {
+  const { modes = {}, styles = {}, ...restTheme } = theme;
+  const { functions, prefix, defaultMode, useLocalStorage = true } = options;
   // Gets all the properties of the theme
   const properties = getProperties(restTheme, undefined, prefix);
+  // Stores theme so in case useLocalStorage is true
+  if (useLocalStorage && !storage.get()) storage.set(defaultMode || 'default');
 
   // Object with the modes defined in the theme
   const modesObject = Object.fromEntries(
@@ -23,6 +35,8 @@ export const createTheme: Theme = (theme, ...functions) => {
   );
 
   return {
+    // Default mode specified in createTheme
+    defaultMode: storage.get() || defaultMode,
     // Theme Properties
     properties,
     // Stylis Plugin
@@ -30,11 +44,15 @@ export const createTheme: Theme = (theme, ...functions) => {
     // Global Style Component
     GlobalStyle: createGlobalStyle<{ mode?: string }>`
       :root {
-        ${({ mode }) =>
-          !!mode
+        ${({ mode }) => {
+          // Stores theme so in case useLocalStorage is true
+          useLocalStorage && storage.set(mode || 'default');
+          // returns flat CSS variables
+          return !!mode
             ? getFlatProperties(merge(properties, modesObject[mode]))
-            : getFlatProperties(properties)}  
-        }
+            : getFlatProperties(properties);
+        }}
+      }
       ${styles as {}}
     `,
   };

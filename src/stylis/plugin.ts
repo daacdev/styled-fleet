@@ -7,7 +7,7 @@ import { STYLIS_CONTEXT } from '../constants';
  * @param functions Functions that can be used by components
  * @returns A StylisPlugin for css string processing
  */
-export const plugin = (functions: Function[]): StylisPlugin => {
+export const plugin = (functions: Function[] = []): StylisPlugin => {
   // Object containing all functions
   const fnObject = Object.fromEntries(functions.map(fn => [fn.name, fn]));
 

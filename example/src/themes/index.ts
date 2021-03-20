@@ -1,5 +1,5 @@
 import { cssVar, rgba } from 'polished';
-import { createTheme } from '../../../.';
+import { createTheme, ThemeOptions } from '../../../.';
 
 import { blueTheme } from './blue';
 import { cyanTheme } from './cyan';
@@ -15,22 +15,27 @@ import { tealTheme } from './teal';
 import { violetTheme } from './violet';
 import { yellowTheme } from './yellow';
 
-const functions = [cssVar, rgba];
+const options: ThemeOptions = {
+  defaultMode: 'light',
+  prefix: 'theme',
+  functions: [cssVar, rgba],
+  useLocalStorage: true
+}
 
 export const themes = {
-  blue: createTheme({ ...blueTheme }, ...functions),
-  cyan: createTheme({ ...cyanTheme }, ...functions),
-  gray: createTheme({ ...defaultTheme }, ...functions),
-  grape: createTheme({ ...grapeTheme }, ...functions),
-  green: createTheme({ ...greenTheme }, ...functions),
-  indigo: createTheme({ ...indigoTheme }, ...functions),
-  lime: createTheme({ ...limeTheme }, ...functions),
-  orange: createTheme({ ...orangeTheme }, ...functions),
-  pink: createTheme({ ...pinkTheme }, ...functions),
-  red:  createTheme({ ...redTheme }, ...functions),
-  teal: createTheme({ ...tealTheme }, ...functions),
-  violet: createTheme({ ...violetTheme }, ...functions),
-  yellow: createTheme({ ...yellowTheme }, ...functions)
+  blue: createTheme({ ...blueTheme }, options),
+  cyan: createTheme({ ...cyanTheme }, options),
+  gray: createTheme({ ...defaultTheme }, options),
+  grape: createTheme({ ...grapeTheme }, options),
+  green: createTheme({ ...greenTheme }, options),
+  indigo: createTheme({ ...indigoTheme }, options),
+  lime: createTheme({ ...limeTheme }, options),
+  orange: createTheme({ ...orangeTheme }, options),
+  pink: createTheme({ ...pinkTheme }, options),
+  red:  createTheme({ ...redTheme }, options),
+  teal: createTheme({ ...tealTheme }, options),
+  violet: createTheme({ ...violetTheme }, options),
+  yellow: createTheme({ ...yellowTheme }, options)
 }
 
 export { colors } from './colors';

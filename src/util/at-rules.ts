@@ -1,4 +1,4 @@
-export default [
+export const at_rules = [
   'charset',
   'counter-style',
   'document',

@@ -10,19 +10,23 @@ export interface ThemeModes {
   [key: string]: string | number | ThemeModes;
 }
 
-export interface ThemeStyles {
+export interface DefaultTheme extends StyledDefaultTheme {
+  modes?: ThemeModes;
   styles?: {
     [key in IntrinsicElementsKeys]?: CSSObject;
   };
 }
 
-export interface DefaultTheme extends StyledDefaultTheme, ThemeStyles {
+export interface ThemeOptions {
   prefix?: string;
-  modes?: ThemeModes;
+  useLocalStorage?: boolean;
+  defaultMode?: string;
+  functions?: Function[];
 }
 
 export interface Theme {
-  (theme: DefaultTheme, ...functions: Function[]): {
+  (theme: DefaultTheme, options: ThemeOptions): {
+    defaultMode?: string;
     properties: DefaultTheme;
     plugin: StylisPlugin;
     GlobalStyle: GlobalStyleComponent<{ mode?: string }, DefaultTheme>;
@@ -31,7 +35,6 @@ export interface Theme {
 
 export interface ThemeProviderProps {
   theme: ReturnType<Theme>;
-  defaultMode?: string;
 }
 
 export interface ThemeModeContext {
