@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "demo": "parcel build index.html --out-dir ../docs --public-url ./",
+    "deploy-demo": "parcel build index.html --out-dir ../docs --public-url ./",
     "serve": "serve dist"
   },
   "dependencies": {

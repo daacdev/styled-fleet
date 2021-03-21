@@ -10,7 +10,7 @@
 
 [English](./README.md) | Español
 
-## 🎴 [Demo](https://demo.com)
+## 🎴 [Demo](https://daacdev.github.io/styled-fleet/)
 
 ## ⚙️ Ejemplos
 

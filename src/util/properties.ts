@@ -65,8 +65,7 @@ export const getFlatProperties: ThemeFlatProperties = properties => {
 
   return (
     flattenProperties(properties)
-      // This is necessary to match the regular expression
-      .concat(',')
+      .concat(';')
       .replace(regex.extract_css_var, '$<propertie>: $<value>')
   );
 };
