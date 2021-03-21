@@ -30,7 +30,7 @@ yarn add styled-fleet
 
 ## 🔨 Usage
 
-Create a theme
+Create a `theme`
 
 ```jsx
 import {createTheme} from 'styled-fleet';
@@ -66,7 +66,7 @@ const theme = createTheme({
 });
 ```
 
-Create a styled component and access the theme with $theme-... , or if you prefer you can use the css notation with var(--theme-...)
+Create a `styled component` and access the `theme` with $theme-... , or if you prefer you can use the css notation with var(--theme-...)
 
 ```jsx
 import styled from 'styled-components';
@@ -88,7 +88,7 @@ export const Button = styled.button`
 `;
 ```
 
-Add the theme to ThemeProvider and use the component
+Add the `theme` to `ThemeProvider` and use the component
 
 ```jsx
 import * as React from 'react';
@@ -109,7 +109,7 @@ export const App = () => {
 
 ### `createTheme`
 
-Function that allows you to create a theme.
+Function that allows you to create a `theme`.
 |Parameters|Type|Description|
 |----------|----|-----------|
 |theme (required)|[DefaultTheme](#DefaultTheme)|Theming context object|
@@ -117,7 +117,7 @@ Function that allows you to create a theme.
 
 #### `DefaultTheme`
 
-Object with custom key / value that will define the global css variables, the styles and modes keys are reserved to define global styles and theme modes respectively, for example.
+Object with custom key / value that will define the global css variables, the `styles` and `modes` keys are reserved to define global styles and `theme` modes respectively, for example.
 
 ```javascript
 {
@@ -213,7 +213,7 @@ Provider component that provides a theme for all React components under itself.
 
 |Props|Description|value|
 |-----|-----------|-----|
-|theme (required)|Required accessory for global app theming|Object returned by createTheme|
+|theme (required)|Required prop for global app theming|Object returned by createTheme|
 
 `Example:`
 
@@ -234,12 +234,12 @@ const App = () => {
 
 ### `useMode`
 
-Hook that allows accessing or setting the current theme mode in the context of ThemeProvider.
+Hook that allows accessing or setting the current theme mode in the context of `ThemeProvider`.
 
 * Does not receive input parameters.
 * Returns a pair of values that can be destructuring into
-  * mode, string containing current mode theme.
-  * setMode, function that allows setting the theme mode, receives as the only parameter a string that represents the theme to be used.
+  * `mode`, string containing current mode theme.
+  * `setMode`, function that allows setting the theme mode, receives as the only parameter a string that represents the theme to be used.
 
 `Example:`
 

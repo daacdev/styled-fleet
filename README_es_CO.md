@@ -30,7 +30,7 @@ yarn add styled-fleet
 
 ## 🔨 Uso
 
-Crea un tema
+Crea un `tema`
 
 ```jsx
 import {createTheme} from 'styled-fleet';
@@ -66,7 +66,7 @@ const theme = createTheme({
 });
 ```
 
-Crea un styled component y accede al tema con $theme-..., o si lo prefieres, puedes usar la notación CSS con var(--theme-...)
+Crea un `styled component` y accede al `tema` con $theme-..., o si lo prefieres, puedes usar la notación CSS con var(--theme-...)
 
 ```jsx
 import styled from 'styled-components';
@@ -88,7 +88,7 @@ export const Button = styled.button`
 `;
 ```
 
-Agregua el tema a ThemeProvider y usa el componente
+Agregua el `tema` a `ThemeProvider` y usa el componente
 
 ```jsx
 import * as React from 'react';
@@ -109,7 +109,7 @@ export const App = () => {
 
 ### `createTheme`
 
-Función que te permite crear un tema.
+Función que te permite crear un `tema`.
 |Parametro|Tipo|Descripción|
 |----------|----|-----------|
 |theme (requerido)|[DefaultTheme](#DefaultTheme)|Objeto de contexto temático|
@@ -117,7 +117,7 @@ Función que te permite crear un tema.
 
 #### `DefaultTheme`
 
-Objeto con clave / valor personalizado que definirá las variables CSS globales, las claves style y modes están reservadas para definir estilos globales y modos de tema respectivamente, por ejemplo.
+Objeto con clave / valor personalizado que definirá las variables CSS globales, las claves `style` y `modes` están reservadas para definir estilos globales y modos de `tema` respectivamente, por ejemplo.
 
 ```javascript
 {
@@ -211,9 +211,9 @@ const MyComponent = styled.div`
 
 Componente de proveedor que proporciona un tema para todos los componentes de React en sí mismo.
 
-|Props|Description|value|
+|Props|Descripción|Valor|
 |-----|-----------|-----|
-|theme (requerido)|Accesorio necesario para la tematización global de aplicaciones|Objeto retornado por createTheme|
+|theme (requerido)|prop necesario para la tematización global de aplicaciones|Objeto retornado por createTheme|
 
 `Example:`
 
@@ -234,12 +234,12 @@ const App = () => {with
 
 ### `useMode`
 
-Hook que permite acceder o configurar el theme mode actual en el contexto de ThemeProvider.
+Hook que permite acceder o configurar el theme mode actual en el contexto de `ThemeProvider`.
 
 * No recibe parámetros de entrada.
 * Devuelve un par de valores que se pueden desestructurar en
-  * mode, cadena que contiene el tema del modo actual.
-  * setMode, función que permite configurar el modo de tema, recibe como único parámetro una cadena que representa el tema a utilizar.
+  * `mode`, cadena que contiene el tema del modo actual.
+  * `setMode`, función que permite configurar el modo de tema, recibe como único parámetro una cadena que representa el tema a utilizar.
 
 `Example:`
 
