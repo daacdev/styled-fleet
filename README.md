@@ -14,11 +14,11 @@ English | [Español](./README_es_CO.md)
 
 ## ⚙️ Examples
 
-|javascript|[link](https:demojavascript.com)|
+|javascript|[link](https://demojavascript.com)|
 |----------|--------------------------------|
-|typescript|[link](https:demotypescript.com)|
+|typescript|[link](https://demotypescript.com)|
 
-## 📦 Install
+## 📦 Install 
 
 ```bash
 npm install styled-fleet
@@ -246,7 +246,7 @@ Hook that allows accessing or setting the current theme mode in the context of T
 ```jsx
 import * as React from 'react';
 import styled from 'styled-components';
-import { useMode } from '../../../.'
+import { useMode } from 'styled-fleet'
 
 import { Button } from './Button';
 import { MoonIcon } from './MoonIcon';

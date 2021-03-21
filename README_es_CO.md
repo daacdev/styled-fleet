@@ -246,7 +246,7 @@ Hook que permite acceder o configurar el theme mode actual en el contexto de The
 ```jsx
 import * as React from 'react';
 import styled from 'styled-components';
-import { useMode } from '../../../.'
+import { useMode } from 'styled-fleet'
 
 import { Button } from './Button';
 import { MoonIcon } from './MoonIcon';
