@@ -4,6 +4,8 @@
 
   Tematización para aplicaciones con styled-components
 
+  [![CI](https://github.com/daacdev/styled-fleet/actions/workflows/main.yml/badge.svg)](https://github.com/daacdev/styled-fleet/actions/workflows/main.yml)
+
 </div>
 
 <img alt="styled-fleet" src="https://github.com/daacdev/styled-fleet/blob/ae4a1047a8b4be2f4280678b135e8ab375059ddb/example/demo/demo.gif" />

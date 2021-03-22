@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "author": "daacdev",
   "description": "building theming for styled components.",
+  "homepage": "https://daacdev.github.io/styled-fleet/",
   "license": "MIT",
   "module": "dist/styled-fleet.esm.js",
   "main": "dist/index.js",
