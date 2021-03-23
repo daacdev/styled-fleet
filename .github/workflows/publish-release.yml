@@ -18,9 +18,6 @@ jobs:
       - name: Install deps and build
         run: yarn install
         
-      - name: Build
-        run: yarn build
-        
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

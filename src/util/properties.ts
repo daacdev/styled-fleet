@@ -1,4 +1,4 @@
-import kebabcase from 'lodash.kebabcase';
+import kebabcase from 'lodash/kebabCase';
 import { ThemeProperties, ThemeFlatProperties } from '../types';
 import { DEFAULT_PREFIX } from '../constants';
 import { at_rules } from './at-rules';

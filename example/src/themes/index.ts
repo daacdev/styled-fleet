@@ -1,4 +1,3 @@
-import { cssVar, rgba } from 'polished';
 import { createTheme, ThemeOptions } from '../../../.';
 
 import { blueTheme } from './blue';
@@ -18,7 +17,7 @@ import { yellowTheme } from './yellow';
 const options: ThemeOptions = {
   defaultMode: 'light',
   prefix: 'theme',
-  functions: [cssVar, rgba],
+  functions: [],
   useLocalStorage: true
 }
 
