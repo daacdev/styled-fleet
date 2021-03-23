@@ -1,6 +1,6 @@
 {
   "name": "styled-fleet",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "daacdev",
   "description": "building theming for styled components.",
   "homepage": "https://daacdev.github.io/styled-fleet/",
@@ -28,7 +28,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
+    "lint": "tsdx lint src",
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why"
