@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { ThemeProvider } from '../../.';
 
-import { colors, themes } from '../src/themes';
+import { themes } from './themes';
+import { colors } from './themes/colors';
 import {
   Button,
   Container,

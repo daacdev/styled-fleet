@@ -19,7 +19,7 @@ const options: ThemeOptions = {
   prefix: 'theme',
   functions: [],
   useLocalStorage: true
-}
+};
 
 export const themes = {
   blue: createTheme({ ...blueTheme }, options),
@@ -35,6 +35,4 @@ export const themes = {
   teal: createTheme({ ...tealTheme }, options),
   violet: createTheme({ ...violetTheme }, options),
   yellow: createTheme({ ...yellowTheme }, options)
-}
-
-export { colors } from './colors';
+};
