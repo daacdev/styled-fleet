@@ -16,12 +16,6 @@ English | [Español](./README_es_CO.md)
 
 ## 🎴 [Demo](https://daacdev.github.io/styled-fleet/)
 
-## ⚙️ Examples
-
-|javascript|[link](https://demojavascript.com)|
-|----------|--------------------------------|
-|typescript|[link](https://demotypescript.com)|
-
 ## 📦 Install
 
 ```bash
