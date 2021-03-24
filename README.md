@@ -290,5 +290,3 @@ export const ButtonThemeMode = () => {
 Licensed under the MIT License.
 
 See [LICENSE](./LICENSE) for more information.
-
-## Made in 🇨🇴 with ♥️
