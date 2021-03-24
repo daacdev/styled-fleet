@@ -19,7 +19,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
   theme,
 }): JSX.Element => {
   const { defaultMode, properties, plugin, GlobalStyle } = theme;
-  const [mode, setMode] = React.useState<string>(defaultMode || '');
+  const [mode, setMode] = React.useState<string>(defaultMode || 'undefined');
 
   return (
     <StyledThemeProvider theme={properties}>

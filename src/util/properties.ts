@@ -1,22 +1,7 @@
 import kebabcase from 'lodash/kebabCase';
 import { ThemeProperties, ThemeFlatProperties } from '../types';
 import { DEFAULT_PREFIX } from '../constants';
-import { at_rules } from './at-rules';
-
-/**
- * @description An object with regular expressions that allows to extract information from css
- */
-export const regex = {
-  // Extract all css variables
-  extract_css_var: /var\((?<propertie>.*?),(?<value>.*?)\)/g,
-  // Extract all css variables or functions with arguments in the css string
-  extract_user_var_or_fn_args: new RegExp(
-    `(\\$)(?<var>[\\w-]+)|@\\s*(?<fn>(?!\\b${at_rules.join(
-      '|'
-    )}\\b)[\\w\\s-]+)\\((?<args>.*?)\\)(?!.*?\\)[^{]*$)`,
-    'g'
-  ),
-};
+import { regex } from './useful';
 
 /**
  * @description Function that obtains an object with all the properties of a theme

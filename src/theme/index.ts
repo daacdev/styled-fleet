@@ -2,17 +2,12 @@ import merge from 'lodash/merge';
 import { createGlobalStyle } from 'styled-components/macro';
 
 import { Theme } from '../types';
-import {
-  getProperties,
-  getFlatProperties,
-  createThemeModeStorage,
-} from '../util';
-
 import { plugin } from '../stylis/plugin';
 import { THEME_MODE_STORAGE_KEY } from '../constants';
+import { getProperties, getFlatProperties, createLocalStorage } from '../util';
 
 // Object to manage local storage of theme mode
-const storage = createThemeModeStorage(THEME_MODE_STORAGE_KEY);
+const storage = createLocalStorage(THEME_MODE_STORAGE_KEY);
 
 /**
  * @description Function that creates a theme to be used by ThemeProvider.
@@ -26,17 +21,21 @@ export const createTheme: Theme = (theme, options) => {
   const { functions, prefix, defaultMode, useLocalStorage = true } = options;
   // Gets all the properties of the theme
   const properties = getProperties(restTheme, undefined, prefix);
-  // Stores theme so in case useLocalStorage is true
-  if (useLocalStorage && !storage.get()) storage.set(defaultMode || 'default');
 
   // Object with the modes defined in the theme
   const modesObject = Object.fromEntries(
     Object.entries(modes).map(([key, value]) => [key, getProperties(value)])
   );
 
+  // Function that allows to get the theme mode
+  const getMode = () =>
+    !useLocalStorage
+      ? defaultMode || 'undefined'
+      : storage.get() || defaultMode || 'undefined';
+
   return {
     // Default mode specified in createTheme
-    defaultMode: storage.get() || defaultMode,
+    defaultMode: getMode(),
     // Theme Properties
     properties,
     // Stylis Plugin
@@ -46,7 +45,7 @@ export const createTheme: Theme = (theme, options) => {
       :root {
         ${({ mode }) => {
           // Stores theme so in case useLocalStorage is true
-          useLocalStorage && storage.set(mode || 'default');
+          useLocalStorage && storage.set(mode || getMode());
           // returns flat CSS variables
           return !!mode
             ? getFlatProperties(merge(properties, modesObject[mode]))
