@@ -5,6 +5,8 @@
   Building theming for styled components
 
   [![CI](https://github.com/daacdev/styled-fleet/actions/workflows/main.yml/badge.svg)](https://github.com/daacdev/styled-fleet/actions/workflows/main.yml)
+  ![GitHub](https://img.shields.io/github/license/daacdev/styled-fleet)
+  ![npm](https://img.shields.io/npm/v/styled-fleet)
 
 </div>
 
