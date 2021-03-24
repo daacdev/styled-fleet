@@ -16,12 +16,6 @@
 
 ## 🎴 [Demo](https://daacdev.github.io/styled-fleet/)
 
-## ⚙️ Ejemplos
-
-|javascript|[link](https:demojavascript.com)|
-|----------|--------------------------------|
-|typescript|[link](https:demotypescript.com)|
-
 ## 📦 Instalación
 
 ```bash
