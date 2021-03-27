@@ -18,7 +18,13 @@ const storage = createLocalStorage(THEME_MODE_STORAGE_KEY);
  */
 export const createTheme: Theme = (theme, options) => {
   const { modes = {}, styles = {}, ...restTheme } = theme;
-  const { functions, prefix, defaultMode, useLocalStorage = true } = options;
+  const {
+    functions,
+    prefix,
+    defaultMode,
+    useLocalStorage = true,
+    scope = ':root',
+  } = options;
   // Gets all the properties of the theme
   const properties = getProperties(restTheme, undefined, prefix);
 
@@ -42,7 +48,7 @@ export const createTheme: Theme = (theme, options) => {
     plugin: plugin(functions),
     // Global Style Component
     GlobalStyle: createGlobalStyle<{ mode?: string }>`
-      :root {
+      ${scope} {
         ${({ mode }) => {
           // Stores theme so in case useLocalStorage is true
           useLocalStorage && storage.set(mode || getMode());

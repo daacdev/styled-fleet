@@ -33,6 +33,11 @@ export const App = () => {
     <ThemeProvider theme = { themes[theme] } >
       <Container>
         <Frame>
+          <div>
+            <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/daacdev/styled-fleet?style=flat-square"></img>
+            <img alt="NPM" src="https://img.shields.io/npm/l/styled-fleet?style=flat-square"></img>
+            <img alt="npm" src="https://img.shields.io/npm/v/styled-fleet?style=flat-square"></img>
+          </div>
           <h1> styled-fleet </h1>
           <FlexColumn>
             <h4> Choose theme: </h4>

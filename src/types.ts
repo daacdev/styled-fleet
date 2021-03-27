@@ -21,6 +21,7 @@ export interface ThemeOptions {
   prefix?: string;
   useLocalStorage?: boolean;
   defaultMode?: string;
+  scope?: string;
   functions?: Function[];
 }
 

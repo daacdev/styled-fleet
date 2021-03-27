@@ -18,6 +18,13 @@ export const Frame = styled.div`
     width: auto;
     height: inherit;
   }
+
+  & > div:first-of-type {
+    align-self: flex-end;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 5px;
+  }
   
   background-color: $theme-frame-background;
   border: $theme-borders-1 solid $theme-frame-border;

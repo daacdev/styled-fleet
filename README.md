@@ -163,6 +163,7 @@ Object with the following keys
 |prefix (optional)|string|Prefix to use in css variables|'theme'|$theme-colors-red|
 |useLocalStorage (optional)|boolean|Enable or disable local storage to store the set theme mode|true|useLocalStorage: true|
 |defaultMode (optional)|string|Set the default theme mode|'default'|defaultMode: 'light'|
+|scope (optional)|string or styled-component|Allows you to set the scope of global CSS variables|':root'|scope: 'body'<br />scope: Sider|
 |functions (optional)|Function[]|An array of custom functions that can be accessed by @\<function name>(...arguments), This allows you to extend and add features to your css styles|[]|functions: [cssVar, ...]
 
 `Note:`
@@ -191,10 +192,11 @@ const options = {
   prefix: 'my-prefix',
   useLocalStorage: false,
   defaultMode: 'light',
+  scope: ':root',
   functions: [rgba, darken, lighten],
 };
 
-export defualt createTheme(theme, options);
+export default createTheme(theme, options);
 
 //  To use it in a component
 const MyComponent = styled.div`
