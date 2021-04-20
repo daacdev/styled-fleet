@@ -7,6 +7,7 @@
   [![CI](https://github.com/daacdev/styled-fleet/actions/workflows/main.yml/badge.svg)](https://github.com/daacdev/styled-fleet/actions/workflows/main.yml)
   ![GitHub](https://img.shields.io/github/license/daacdev/styled-fleet)
   ![npm](https://img.shields.io/npm/v/styled-fleet)
+  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 </div>
 

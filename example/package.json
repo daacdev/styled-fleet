@@ -8,6 +8,7 @@
     "docs": "parcel build ./src/index.html --target gh-pages"
   },
   "dependencies": {
+    "fleet-icons": "^0.1.1",
     "open-color": "^1.8.0",
     "react-app-polyfill": "^2.0.0"
   },

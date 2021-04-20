@@ -3094,6 +3094,11 @@ finalhandler@1.1.2:
     statuses "~1.5.0"
     unpipe "~1.0.0"
 
+fleet-icons@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/fleet-icons/-/fleet-icons-0.1.1.tgz#14dedaf400acc927d140511f27d4e4b22f4bccd8"
+  integrity sha512-2olFh2T0xuYTvbkMOFpv9GdwSwWiUbMFafZZaDgP6zmDI93SUQgToOhEi9ofESlaziL7YyTSUpUtDjWQbAFDsw==
+
 follow-redirects@^1.0.0:
   version "1.13.3"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.3.tgz#e5598ad50174c1bc4e872301e82ac2cd97f90267"

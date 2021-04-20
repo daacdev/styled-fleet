@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { useMode } from '../../../.'
 
 import { Button } from './Button';
-import { MoonIcon } from './MoonIcon';
-import { SunIcon } from './SunIcon';
+import { MoonStarsFill } from 'fleet-icons/icon/MoonStarsFill';
+import { SunFill } from 'fleet-icons/icon/SunFill';
 
 const IconButton = styled(Button)`
   background-color: transparent;
@@ -24,8 +24,8 @@ export const ButtonThemeMode = () => {
   return (
     <IconButton onClick = {() => setMode(mode === 'light' ? 'dark' : 'light') } >
       { mode === 'light'
-        ? ( <MoonIcon /> )
-        : ( <SunIcon /> ) }
+        ? ( <MoonStarsFill size='32px' /> )
+        : ( <SunFill size='32px' /> ) }
       <h4> Switch to { mode === 'light' ? 'dark' : 'light' } mode </h4>
     </IconButton>
   );
