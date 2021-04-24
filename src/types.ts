@@ -4,6 +4,7 @@ import {
   GlobalStyleComponent,
   CSSObject,
   StylisPlugin,
+  FlattenSimpleInterpolation,
 } from 'styled-components';
 
 export interface ThemeModes {
@@ -12,9 +13,11 @@ export interface ThemeModes {
 
 export interface DefaultTheme extends StyledDefaultTheme {
   modes?: ThemeModes;
-  styles?: {
-    [key in IntrinsicElementsKeys]?: CSSObject;
-  };
+  styles?:
+    | {
+        [key in IntrinsicElementsKeys]?: CSSObject;
+      }
+    | FlattenSimpleInterpolation;
 }
 
 export interface ThemeOptions {

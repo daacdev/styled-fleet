@@ -1,18 +1,19 @@
 import { DefaultTheme } from '../../../.';
 import { black, white, restColors } from './colors';
+import { css } from 'styled-components';
 
 export const commonsTheme: DefaultTheme = {
-  styles: {
-    body: {
-      backgroundColor: '$theme-background',
-      color: '$theme-text',
-      minWidth: '$theme-sizes-full',
-      minHeight: '$theme-sizes-screen-height',
-      margin: '$theme-space-0',
-      padding: '$theme-space-0',
-      transition: 'background-color .5s, color .5s',
+  styles: css`
+    body {
+      background-color: $theme-background;
+      color: $theme-text;
+      min-width: $theme-sizes-full;
+      min-height: $theme-sizes-screen-height;
+      margin: $theme-space-0;
+      padding: $theme-space-0;
+      transition: background-color .5s, color .5s;
     }
-  },
+  `,
   colors: {
     black: black,
     white: white,
