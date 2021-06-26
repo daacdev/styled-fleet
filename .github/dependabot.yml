@@ -6,7 +6,7 @@ updates:
     directory: "/" # Location of package manifests
     # Check for updates once a week
     schedule:
-      interval: "daily"
+      interval: "monthly"
     commit-message:
       # Prefix all commit messages with "npm"
       prefix: "npm"
